@@ -42,8 +42,6 @@ unzip(temp, "Covid19Casos.csv") #deszippeamos el archivo descargado
  
 argentina <- fread("Covid19Casos.csv") #usamos fread de la librería data.table
 
-argentina<-as_tibble(argentina)
-
 head(argentina) 
 
 
@@ -54,12 +52,10 @@ head(argentina)
 # edades, fecha ingreso al sistema de salud, residencia, internación y 
 # eventual fallecimiento.
 
-
 ar_positivos <- argentina %>%
    filter(clasificacion_resumen=='Confirmado')%>% #seleccionamos solo a los afectados COVID19
    rename(provincia=residencia_provincia_nombre,
           fecha=fecha_apertura)#la fecha que nos interesa seguir en este caso es las fecha de apertura del caso en el sistema de salud.
-
 
 
 ar_positivos$fecha<- ymd(ar_positivos$fecha) #format de fecha
@@ -68,9 +64,7 @@ ar_positivos$fecha<- ymd(ar_positivos$fecha) #format de fecha
 # Importante, normaliza la fecha de menores de un año, 
 # de dos columnas hacemos una.
 
-
 ar_positivos$edad[which(ar_positivos$edad_años_meses=="Meses")]<- 0.5
-
 
 ar_positivos$edad_años_meses[which(ar_positivos$edad== 0.5 )]<- "Años"
 
