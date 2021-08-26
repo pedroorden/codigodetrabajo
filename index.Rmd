@@ -1,12 +1,19 @@
 ---
 title: "Script de extracción y visualización de datos abiertos COVID-19 en Argentina."
 author: "Pedro Damian Orden"
-date: 2021-08-04T21:13:14-05:00
-categories: ["informes"]
-tags: ["datos abiertos", "covid19", "codigo"]
-featuredImage: "datahead.jpg"
-toc: false
+date: "Actualizado: `r format(Sys.time(), '%d-%m-%Y')`"
+output:
+  html_document:
+    theme: flatly
+    highlight: tango
 ---
+
+<style>
+body {font-family:helvetica;
+line-height: 2.5;
+  font-size: 12pt;
+text-align: justify}
+</style>
 
 ### Inicio
 
